@@ -76,16 +76,20 @@ def exit_game():
 if __name__ == "__main__":
     print("Welcome to TicTacToe! \n To exit the game press '0'")
     while True: 
-        size = int(input("Enter the size of the board >=3 (3 for 3x3, 4 for 4x4, etc.): "))
-        if size == 0:
-            exit_game()
-        if size < 3:
-            print(f"The size of the board must be >=3")
-            continue
-        num_players = int(input("Enter the number of players (2-8): "))
-        if num_players == 0: 
-            exit_game()
-        if num_players < 2 or num_players > 8:
-            print(f"the number of players must be in between 2 and 8")
+        try:
+            size = int(input("Enter the size of the board >=3 (3 for 3x3, 4 for 4x4, etc.): "))
+            if size == 0:
+                exit_game()
+            if size < 3:
+                print(f"The size of the board must be >=3")
+                continue
+            num_players = int(input("Enter the number of players (2-8): "))
+            if num_players == 0: 
+                exit_game()
+            if num_players < 2 or num_players > 8:
+                print(f"the number of players must be in between 2 and 8")
+                continue
+        except ValueError:
+            print(f"Please enter an integer")
             continue
         play_game(size, num_players)
