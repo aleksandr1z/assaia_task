@@ -59,12 +59,12 @@ def play_game(size=3, num_players=2):
         if check_winner(board, current_player):
             print_board(board)
             print(f"Player {current_player} wins!")
-            break
+            exit_game()
 
         if is_board_full(board):
             print_board(board)
             print("It's a draw!")
-            break
+            exit_game()
 
         current_player_index = (current_player_index + 1) % num_players
 
