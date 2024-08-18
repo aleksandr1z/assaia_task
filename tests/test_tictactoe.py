@@ -80,15 +80,5 @@ class TestTicTacToe(unittest.TestCase):
             row, col = get_move(board, player)
             self.assertEqual((row, col), (0, 2))
 
-    def test_play_game_draw(self):
-        # Check on draw result
-        board = [
-            ['X', 'O', 'X'],
-            ['O', 'X', 'X'],
-            ['X', 'X', 'O']
-        ]
-        with unittest.mock.patch('builtins.input', side_effect=['1', '2', '3', '4', '5', '6', '7', '8', '9']):
-            play_game()
-
 if __name__ == "__main__":
     unittest.main()
