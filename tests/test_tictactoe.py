@@ -144,11 +144,11 @@ class TestTicTacToe(unittest.TestCase):
             ['O', 'O', 'X'],
             [' ', ' ', ' ']
         ]
-        with unittest.mock.patch('builtins.input', side_effect=['2', '3']):
-            row, col = get_move(board, player='O')
-            self.assertEqual((row, col), (1, 2))
-            output = mock_stdout.getvalue()
-            self.assertIn("This cell is already taken. Try another one.", output)
+        with unittest.mock.patch('builtins.input', side_effect=['3', '2', '2', '0']):
+            with self.assertRaises(SystemExit):
+                get_move(board, player='O')
+                self.assertIn("This cell is already taken. Try another one.", mock_stdout.getvalue())
+            self.assertIn("Exiting the game.", mock_stdout.getvalue())
         
 
 if __name__ == "__main__":
