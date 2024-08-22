@@ -73,7 +73,7 @@ def exit_game():
     print("Exiting the game.")
     exit(0)
 
-if __name__ == "__main__":
+def welcome_to_game():
     print("Welcome to TicTacToe! \n To exit the game press '0'")
     while True: 
         try:
@@ -87,9 +87,15 @@ if __name__ == "__main__":
             if num_players == 0: 
                 exit_game()
             if num_players < 2 or num_players > 8:
-                print(f"the number of players must be in between 2 and 8")
+                print(f"The number of players must be in between 2 and 8")
                 continue
         except ValueError:
             print(f"Please enter an integer")
             continue
         play_game(size, num_players)
+
+def game_start():
+    if __name__ == "__main__":
+        welcome_to_game()
+        
+game_start()
