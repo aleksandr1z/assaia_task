@@ -28,4 +28,4 @@ To execute tests you can use pytest framework.
 python3 -m pytest
 ```
 
-3. Check test results. Expected 7 tests collected and passed.
+3. Check test results. Expected 18 tests collected and passed.
